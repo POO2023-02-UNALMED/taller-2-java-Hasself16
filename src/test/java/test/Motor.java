@@ -9,13 +9,10 @@ public class Motor {
         this.registro=registro;
     }
     void asignarTipo(String tipo) {
-        String[] tipos = {"electrico", "gasolina"};
-        for (String t : tipos) {
-            if (t.equals(tipo)) {
-                this.tipo=tipo;
-                break;
-            }
+        if (tipo == "electrico" || tipo == "gasolina") {
+        	this.tipo=tipo;
         }
     }
 }
+
 
