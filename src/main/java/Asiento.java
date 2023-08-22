@@ -2,7 +2,7 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-class Asiento {
+public class Asiento {
     String color;
     double precio;
     int registro;
