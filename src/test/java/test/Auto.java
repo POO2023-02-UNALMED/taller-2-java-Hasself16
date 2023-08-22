@@ -1,40 +1,37 @@
 package test;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Auto {
     static int cantidadCreados = 0;
     String modelo;
     double precio;
-    List<Asiento> asientos;
+    Asiento [] asientos;
     String marca;
     Motor motor;
     int registro;
 
     int cantidadAsientos() {
         int count = 0;
-        for (Asiento asiento : asientos) {
-            if (asiento instanceof Asiento) {
-                count++;
-            }
+        for (int i = 0;i < asientos.length; i++) {
+    		if (asientos[i] != null) {
+    			count++;
+			}
         }
         return count;
     }
 
     String verificarIntegridad() {
-        List<Integer> registros = new ArrayList<>();
-        registros.add(this.registro);
-        for (Asiento asiento : asientos) {
-            if (asiento instanceof Asiento) {
-                registros.add(asiento.registro);
-            }
+        if (registro==motor.registro) {
+        	for (int i = 0;i < asientos.length; i++) {
+        		if (asientos[i] != null) {
+        			if (asientos[i].registro != registro) {
+        				return "Las piezas no son originales";
+        			}
+        		}
+        	}
+        	return "Auto original";	
         }
-        registros.add(this.motor.registro);
-
-        if (registros.stream().allMatch(registro -> registro.equals(registros.get(0)))) {
-            return "Auto original";
-        } else {
-            return "Las piezas no son originales";
+        else {
+        	return "Las piezas no son originales";
         }
     }
 
