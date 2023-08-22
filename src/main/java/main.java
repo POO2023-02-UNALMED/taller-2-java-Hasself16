@@ -1,5 +1,4 @@
 package test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +57,7 @@ class Auto {
     }
 
     String verificarIntegridad() {
-        List<int> registros = new ArrayList<>();
+        List<Integer> registros = new ArrayList<>();
         registros.add(this.registro);
         for (Asiento asiento : asientos) {
             if (asiento instanceof Asiento) {
@@ -67,7 +66,7 @@ class Auto {
         }
         registros.add(this.motor.registro);
 
-        if (registros.stream().allMatch(registro -> registo.equals(registros.get(0)))) {
+        if (registros.stream().allMatch(registro -> registro.equals(registros.get(0)))) {
             return "Auto original";
         } else {
             return "Las piezas no son originales";
